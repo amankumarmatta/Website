@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rexx Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shC1qyld/hAxP3Y9tuRdf+opFndbJ0W9wA1dP" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-rYXOqugq9ntS/OiqBzlD2WgZVWI4g3WnqE4D0g4qfFALeWBhXLbBVjhQRcfsJ2o/" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Rexx Games</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#games">Games</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="about">
+        <div class="container">
+            <h2>About Rexx Games</h2>
+            <p>Welcome to Rexx Games! We are dedicated to creating exciting and immersive gaming experiences for players around the world.</p>
+        </div>
+    </section>
+    <section id="games">
+    <div class="container">
+        <h2>Our Games</h2>
+        <div id="gameCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="game1.jpg" class="d-block w-100" alt="Color Catcher">
+                    <div class="carousel-caption">
+                        <h3>Game 1</h3>
+                        <p>Description of Game 1.</p>
+                    </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#gameCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#gameCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Rexx Games</h2>
+            <p>Reach out to us for any inquiries or partnership opportunities.</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Rexx Games. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
