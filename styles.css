@@ -1,18 +1,18 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh; /* Full viewport height */
-    background: rgba(255, 255, 255, 0.2); /* Translucent white background */
+    height: 100vh;
+    background: url('Background.jpg') no-repeat center center fixed;
+    background-size: cover;
     backdrop-filter: blur(15px) saturate(180%) contrast(120%);
     -webkit-backdrop-filter: blur(15px) saturate(180%) contrast(120%);
     display: flex;
-    align-items: center; /* Centers content vertically */
-    justify-content: center; /* Centers content horizontally */
-    overflow: hidden; /* Prevent scrolling */
-    position: relative; /* Enables layering with pseudo-elements if needed */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Optional: Add subtle shadow for depth */
 body:after {
     content: '';
     position: absolute;
@@ -20,17 +20,75 @@ body:after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.05); /* Additional soft layer */
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
-    pointer-events: none; /* Allows interaction with content */
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
 }
 
-/* Content inside the body */
 body > * {
     position: relative;
     z-index: 1;
     text-align: center;
-    color: #fff; /* White text for contrast */
-    font-family: Arial, sans-serif; /* Clean font */
+    color: #fff;
+    font-family: Arial, sans-serif;
     padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgb(0, 0, 0);
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.name-container {
+    display: inline-block;
+    text-align: center;
+}
+.welcome-text {
+    position: absolute;
+    bottom: 20px;
+    width: 22ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: orange;
+    }
 }
