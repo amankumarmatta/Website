@@ -215,3 +215,10 @@ animation-delay: 1s;
 .social-icon:hover {
     transform: scale(1.1);
 }
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
