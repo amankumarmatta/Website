@@ -57,11 +57,12 @@ a {
     display: inline-block;
     text-align: center;
 }
+
 .welcome-text {
     position: absolute;
     bottom: 20px;
     width: 22ch;
-    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    animation: typing 2s steps(22, end) infinite, blink-caret 1s step-end infinite;
     white-space: nowrap;
     overflow: hidden;
     text-align: center;
@@ -74,7 +75,7 @@ a {
         width: 0;
     }
     to {
-        width: 100%;
+        width: 22ch;
     }
 }
 
@@ -86,10 +87,107 @@ a {
         border-color: orange;
     }
 }
+
 .logo {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 50px; /* Adjust the size as needed */
+    width: 50px;
     height: auto;
+}    
+.animated-button {
+    position: relative;
+    padding: 15px 30px;
+    margin: -10px 20px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.animated-button span {
+position: absolute;
+display: block;
+}
+
+/* Top border animation */
+.animated-button span:nth-child(1) {
+top: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: linear-gradient(to right, #171618, #3bff3b);
+animation: animate1 2s linear infinite;
+}
+
+/* Right border animation */
+.animated-button span:nth-child(2) {
+top: 0;
+right: 0;
+width: 3px;
+height: 100%;
+background: linear-gradient(to bottom, #171618, #3bff3b);
+animation: animate2 2s linear infinite;
+animation-delay: 1s;
+}
+
+/* Bottom border animation */
+.animated-button span:nth-child(3) {
+bottom: 0;
+left: 0;
+width: 100%;
+height: 3px;
+background: linear-gradient(to left, #171618, #3bff3b);
+animation: animate3 2s linear infinite;
+}
+
+/* Left border animation */
+.animated-button span:nth-child(4) {
+top: 0;
+left: 0;
+width: 3px;
+height: 100%;
+background: linear-gradient(to top, #171618, #3bff3b);
+animation: animate4 2s linear infinite;
+animation-delay: 1s;
+}
+
+/* Keyframes for animations */
+@keyframes animate1 {
+0% {
+    transform: translateX(-100%);
+}
+100% {
+    transform: translateX(100%);
+}
+}
+
+@keyframes animate2 {
+0% {
+    transform: translateY(-100%);
+}
+100% {
+    transform: translateY(100%);
+}
+}
+
+@keyframes animate3 {
+0% {
+    transform: translateX(100%);
+}
+100% {
+    transform: translateX(-100%);
+}
+}
+
+@keyframes animate4 {
+0% {
+    transform: translateY(100%);
+}
+100% {
+    transform: translateY(-100%);
+}
 }
