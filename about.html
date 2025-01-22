@@ -3,63 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Aman Kumar Matta</title>
+    <title>About - Aman's Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            background: rgb(0, 0, 0);
-            color: #ffffff;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .content {
-            max-width: 600px;
-            padding: 20px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        .back-button:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
 </head>
 <body>
-    <a href="#" class="back-button" onclick="goBack()"><< Back</a>
-    <div class="content">
-        <p>Versatile game developer, adept in 2D/3D, AR/VR and multiplayer development using Unity. My portfolio showcases a fusion of technical prowess and creative vision, pushing boundaries in immersive gaming. Eager to bring groundbreaking ideas to life with a dynamic team.</p>
+    <div class="frosted-glass"></div> <!-- Frosted glass effect -->
+    <img src="Logo.svg" alt="Logo" class="logo">
+    <div class="buttons">
+        <a href="index.html">1. Home</a>
+        <a href="experience.html">2. Experience</a>
+        <a href="work.html">3. Work</a>
+        <a href="contact.html">4. Contact</a>
+        <a href="My Resume.pdf" download="Aman_Kumar_Matta_Resume.pdf" class="animated-button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Resume
+        </a>
     </div>
-    <script>
-        function goBack() {
-            window.location.href = 'index.html';
-        }
-    </script>
+    <div class="about-me" id="content">
+        <div class="text-content">
+        <h1>About Me</h1>
+        <p>
+            Hi! I'm Aman Kumar Matta, a Jr. Game Developer at Brahman Studios. I'm a passionate game developer with a keen interest in game design and development. I have experience in developing games for various platforms including PC, mobile, and web. I'm proficient in Unity, C#, and JavaScript. I'm also skilled in 3D modeling and animation using Blender. I'm a quick learner and a team player. I'm always eager to learn new technologies and improve my skills. I'm looking forward to working on exciting projects and collaborating with talented individuals.
+        </p>
+        </div>
+        <img src="dp.jpg" alt="Aman Kumar Matta">
+    </div>
+    <canvas id="starCanvas"></canvas>
+    <script src="script.js"></script>
 </body>
 </html>
