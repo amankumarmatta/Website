@@ -4,43 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aman's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Set default styles for dark theme */
         body {
             margin: 0;
-            height: 100vh; /* Full viewport height */
-            background: rgba(0, 0, 0, 0.8); /* Slightly darker translucent background */
-            backdrop-filter: blur(13.3px); /* Glossy blur effect */
-            -webkit-backdrop-filter: blur(13.3px); /* Safari support */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-            color: #ffffff; /* Light gray text for better readability */
-            font-family: 'Arial', sans-serif; /* Clean font */
+            height: 100vh;
+            background: rgb(0, 0, 0);
+            backdrop-filter: blur(13.3px);
+            -webkit-backdrop-filter: blur(13.3px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
             display: flex;
-            align-items: center; /* Center content vertically */
-            justify-content: center; /* Center content horizontally */
-            overflow: hidden; /* Prevent scrolling */
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
         }
 
-        /* Ensure all headings and text maintain contrast */
         h1 {
             margin: 0;
             font-size: 3rem;
             font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Add shadow for depth */
+            text-shadow: 0 2px 4px rgb(0, 0, 0);
         }
 
-        /* Style links for dark mode */
+        h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
         a {
-            color: #1e90ff; /* Bright blue for links */
+            color: #ffffff;
             text-decoration: none;
+            margin-left: 10px;
+            font-size: 1rem;
         }
 
         a:hover {
             text-decoration: underline;
         }
+
+        .buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .name-container {
+            display: inline-block;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
-    <h1>Aman Kumar Matta</h1>
+    <div class="buttons">
+        <a href="#" onclick="loadPage('about.html')">1. About</a>
+        <a href="#projects">2. Projects</a>
+        <a href="#resume">3. Resume</a>
+    </div>
+    <div class="name-container" id="content">
+        <h4>Hi, My name is</h4>
+        <h1>Aman Kumar Matta</h1>
+    </div>
+    <script>
+        function loadPage(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading page:', error));
+        }
+    </script>
 </body>
 </html>
