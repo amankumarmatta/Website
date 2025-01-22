@@ -11,6 +11,7 @@ body {
     justify-content: center;
     overflow: hidden;
     position: relative;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body:after {
@@ -30,7 +31,6 @@ body > * {
     z-index: 1;
     text-align: center;
     color: #fff;
-    font-family: Arial, sans-serif;
     padding: 20px;
 }
 
@@ -72,7 +72,6 @@ a:hover {
     text-align: center;
     font-size: 1.5rem;
     color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
 }
 
 @keyframes typing {
