@@ -13,10 +13,11 @@
             align-items: center;
             justify-content: center;
             font-family: 'Montserrat', sans-serif;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgb(0, 0, 0);
             color: #ffffff;
             text-align: center;
             overflow: hidden;
+            position: relative;
         }
 
         .content {
@@ -37,29 +38,27 @@
         }
 
         .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #1e90ff;
+            position: absolute;
+            top: 20px;
+            left: 20px;
             color: white;
             text-decoration: none;
             font-size: 1rem;
-            border-radius: 5px;
         }
 
         .back-button:hover {
-            background-color: #1c86ee;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+    <a href="#" class="back-button" onclick="goBack()"><< Back</a>
     <div class="content">
         <p>Versatile game developer, adept in 2D/3D, AR/VR and multiplayer development using Unity. My portfolio showcases a fusion of technical prowess and creative vision, pushing boundaries in immersive gaming. Eager to bring groundbreaking ideas to life with a dynamic team.</p>
-        <a href="#" class="back-button" onclick="goBack()">Back</a>
     </div>
     <script>
         function goBack() {
-            window.history.back();
+            window.location.href = 'index.html';
         }
     </script>
 </body>
