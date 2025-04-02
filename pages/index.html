@@ -3,56 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman's Unity Portfolio</title>
+    <title>Aman's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" href="../assets/images/Logo.png" type="image/png">
+    <link rel="icon" href="../assets/icons/Logo.png" type="image/png">
 </head>
 <body>
-    <img src="../assets/images/Logo.svg" alt="Logo" class="logo">
-    <div class="buttons">
-        <a href="about.html">About</a>
-        <a href="#" onclick="loadPage('experience.html')">Experience</a>
-        <a href="work.html">Projects</a>
-        <a href="#" onclick="loadPage('contact.html')">Contact</a>
-        <a href="../Files/My Resume.pdf" download="Aman_Kumar_Matta_Resume.pdf">Resume</a>
+    <div class="frosted-glass"></div>
+    <img src="../assets/icons/Logo.svg" alt="Logo" class="logo">
+    
+    <!-- Hamburger Menu -->
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    <div class="name-container" id="content">
+
+    <!-- Navigation Menu -->
+    <div class="buttons">
+        <a href="../index.html">1. Home</a>
+        <a href="experience.html">2. Experience</a>
+        <a href="work.html">3. Work</a>
+        <a href="contact.html">4. Contact</a>
+        <a href="../assets/files/My Resume.pdf" download="Aman_Kumar_Matta_Resume.pdf" class="animated-button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Resume
+        </a>
+    </div>
+
+    <div class="name-container">
         <h1>Aman Kumar Matta</h1>
-        <h2>Unity Game Developer</h2>
+        <h2>Game Developer</h2>
         <div class="skills">
             <span>Unity</span>
             <span>C#</span>
+            <span>JavaScript</span>
+            <span>Blender</span>
             <span>Game Design</span>
             <span>3D Modeling</span>
         </div>
     </div>
+
     <div class="welcome-text">
         <p>Creating immersive gaming experiences</p>
     </div>
+
     <div class="socials">
-        <a href="https://linkedin.com/in/amankumarmatta" target="_blank" class="social-icon" id="linkedin">
-            <img src="../assets/icons/linkedin.png" alt="LinkedIn">
+        <a href="https://github.com/amankumarmatta" target="_blank">
+            <img src="../assets/icons/github.png" alt="GitHub" class="social-icon">
         </a>
-        <a href="https://github.com/amankumarmatta" target="_blank" class="social-icon" id="github">
-            <img src="../assets/icons/github.png" alt="GitHub">
+        <a href="https://linkedin.com/in/amankumarmatta" target="_blank">
+            <img src="../assets/icons/linkedin.png" alt="LinkedIn" class="social-icon">
         </a>
-        <a href="https://twitter.com/amankumarmatta" target="_blank" class="social-icon" id="twitter">
-            <img src="../assets/icons/twitter.png" alt="Twitter">
+        <a href="https://twitter.com/amankumarmatta" target="_blank">
+            <img src="../assets/icons/twitter.png" alt="Twitter" class="social-icon">
         </a>
-        <a href="https://wa.me/+918341016691" target="_blank" class="social-icon" id="whatsapp">
-            <img src="../assets/icons/whatsapp.png" alt="Whatsapp">
+        <a href="https://wa.me/+918341016691" target="_blank">
+            <img src="../assets/icons/whatsapp.png" alt="Whatsapp" class="social-icon">
         </a>
     </div>
+
     <canvas id="starCanvas"></canvas>
     <script src="../js/script.js"></script>
     <script>
-        function loadPage(url) {
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('content').innerHTML = data;
-                })
-        }
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const buttons = document.querySelector('.buttons');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            buttons.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !buttons.contains(e.target)) {
+                hamburger.classList.remove('active');
+                buttons.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        const menuLinks = document.querySelectorAll('.buttons a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                buttons.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>
