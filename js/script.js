@@ -1,88 +1,120 @@
-// Content for different pages
+// Terminal-like typing effect
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.innerHTML = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    element.appendChild(cursor);
+
+    function type() {
+        if (i < text.length) {
+            element.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Glitch effect
+function glitchEffect(element) {
+    const originalText = element.textContent;
+    let glitchCount = 0;
+    const maxGlitches = 5;
+
+    function glitch() {
+        if (glitchCount < maxGlitches) {
+            const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            let glitchedText = '';
+            for (let i = 0; i < originalText.length; i++) {
+                if (Math.random() > 0.9) {
+                    glitchedText += chars.charAt(Math.floor(Math.random() * chars.length));
+                } else {
+                    glitchedText += originalText.charAt(i);
+                }
+            }
+            element.textContent = glitchedText;
+            glitchCount++;
+            setTimeout(glitch, 50);
+        } else {
+            element.textContent = originalText;
+        }
+    }
+    glitch();
+}
+
+// Terminal command effect
+function terminalCommand(element, command) {
+    const prompt = 'root@portfolio:~# ';
+    element.innerHTML = prompt;
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    element.appendChild(cursor);
+
+    let i = 0;
+    function type() {
+        if (i < command.length) {
+            element.insertBefore(document.createTextNode(command.charAt(i)), cursor);
+            i++;
+            setTimeout(type, 50);
+        }
+    }
+    type();
+}
+
+// Page content with hacker theme
 const pageContent = {
     home: `
-        <div class="name-container">
-            <h1>Aman Kumar Matta</h1>
-            <h2>Game Developer</h2>
-        </div>
-        <div class="welcome-text">
-            <p>Creating immersive gaming experiences</p>
+        <div class="terminal">
+            <div class="terminal-title">root@portfolio:~#</div>
+            <div class="content">
+                <p class="loading">Initializing system...</p>
+                <p>Welcome to my digital domain.</p>
+                <p>Type 'help' for available commands.</p>
+            </div>
         </div>
     `,
     about: `
-        <div class="about-me">
-            <div class="text-content">
-                <h2>About Me</h2>
-                <p>I am a passionate game developer with expertise in creating immersive gaming experiences. With a strong foundation in both programming and game design, I strive to bring unique ideas to life through interactive storytelling and engaging gameplay mechanics.</p>
-                <div class="skills">
-                    <span>Unity</span>
-                    <span>C#</span>
-                    <span>Game Design</span>
-                    <span>3D Modeling</span>
-                    <span>Animation</span>
-                    <span>UI/UX</span>
-                </div>
+        <div class="terminal">
+            <div class="terminal-title">root@portfolio:~# about</div>
+            <div class="content">
+                <p>Loading personal data...</p>
+                <p>Name: Aman Kumar Matta</p>
+                <p>Role: Game Developer</p>
+                <p>Skills: Unity, C#, Game Design</p>
+                <p>Status: Active</p>
             </div>
-            <img src="assets/images/profile.png" alt="Aman Kumar Matta" class="profile-image">
         </div>
     `,
     experience: `
-        <div class="experience-section">
-            <h2>Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Senior Game Developer</h3>
-                    <p class="company">Game Studio XYZ</p>
-                    <p class="period">2020 - Present</p>
-                    <p class="description">Led development of multiple successful game projects, focusing on gameplay mechanics and user experience.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Game Developer</h3>
-                    <p class="company">Indie Game Studio</p>
-                    <p class="period">2018 - 2020</p>
-                    <p class="description">Developed and released several indie games, handling both programming and design aspects.</p>
-                </div>
+        <div class="terminal">
+            <div class="terminal-title">root@portfolio:~# experience</div>
+            <div class="content">
+                <p>Accessing experience database...</p>
+                <p>Senior Game Developer - Game Studio XYZ (2020-Present)</p>
+                <p>Game Developer - Indie Game Studio (2018-2020)</p>
             </div>
         </div>
     `,
     work: `
-        <div class="work-section">
-            <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="assets/images/project1.png" alt="Project 1" class="project-image">
-                    <h3>Project Title 1</h3>
-                    <p>Description of the project and its key features.</p>
-                </div>
-                <div class="portfolio-item">
-                    <img src="assets/images/project2.png" alt="Project 2" class="project-image">
-                    <h3>Project Title 2</h3>
-                    <p>Description of the project and its key features.</p>
-                </div>
-                <div class="portfolio-item">
-                    <img src="assets/images/project3.png" alt="Project 3" class="project-image">
-                    <h3>Project Title 3</h3>
-                    <p>Description of the project and its key features.</p>
-                </div>
+        <div class="terminal">
+            <div class="terminal-title">root@portfolio:~# projects</div>
+            <div class="content">
+                <p>Scanning project directory...</p>
+                <p>Project 1: [REDACTED]</p>
+                <p>Project 2: [REDACTED]</p>
+                <p>Project 3: [REDACTED]</p>
             </div>
         </div>
     `,
     contact: `
-        <div class="contact-section">
-            <h2>Get in Touch</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+        <div class="terminal">
+            <div class="terminal-title">root@portfolio:~# contact</div>
+            <div class="content">
+                <p>Establishing secure connection...</p>
+                <p>Email: [ENCRYPTED]</p>
+                <p>Phone: [ENCRYPTED]</p>
+                <p>Location: [REDACTED]</p>
             </div>
         </div>
     `
@@ -92,8 +124,7 @@ const pageContent = {
 document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('main-content');
     const buttons = document.querySelectorAll('.buttons a[data-page]');
-    const hamburger = document.querySelector('.hamburger');
-    const menu = document.querySelector('.buttons');
+    const title = document.querySelector('.terminal-title');
 
     // Load home page by default
     loadPage('home');
@@ -103,37 +134,29 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             const page = button.getAttribute('data-page');
-            loadPage(page);
-            menu.classList.remove('active');
-            hamburger.classList.remove('active');
+            terminalCommand(title, page);
+            setTimeout(() => loadPage(page), 1000);
         });
     });
 
-    // Hamburger menu toggle
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        menu.classList.toggle('active');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-            menu.classList.remove('active');
-            hamburger.classList.remove('active');
-        }
+    // Add glitch effect to headings
+    const headings = document.querySelectorAll('h1, h2');
+    headings.forEach(heading => {
+        heading.addEventListener('mouseover', () => glitchEffect(heading));
     });
 });
 
-// Function to load page content
 function loadPage(page) {
     const mainContent = document.getElementById('main-content');
     mainContent.innerHTML = pageContent[page];
     
-    // Add fade-in animation
-    mainContent.style.opacity = '0';
-    setTimeout(() => {
-        mainContent.style.opacity = '1';
-    }, 50);
+    // Add typing effect to content
+    const paragraphs = mainContent.querySelectorAll('p');
+    paragraphs.forEach((p, index) => {
+        setTimeout(() => {
+            typeWriter(p, p.textContent);
+        }, index * 1000);
+    });
 }
 
 // Star canvas animation
@@ -179,4 +202,5 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
+animate(); 
 animate(); 

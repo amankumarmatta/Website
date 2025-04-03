@@ -3,64 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aman Kumar Matta</title>
+    <title>Hacker Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
 </head>
 <body>
-    <canvas id="starCanvas"></canvas>
-    <div class="frosted-glass">
-        <div class="glass-shape"></div>
-        <div class="glass-shape"></div>
-    </div>
-    <img src="assets/icons/Logo.svg" alt="Logo" class="logo">
+    <div class="matrix-rain" id="matrixRain"></div>
     
-    <!-- Hamburger Menu -->
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="terminal">
+        <div class="terminal-title">root@portfolio:~#</div>
+        <div class="content">
+            <div class="header">
+                <h1 class="glitch">Aman Kumar Matta</h1>
+                <h2>Game Developer</h2>
+            </div>
+            
+            <div class="buttons">
+                <a href="#" data-page="home">home</a>
+                <a href="#" data-page="about">about</a>
+                <a href="#" data-page="experience">experience</a>
+                <a href="#" data-page="work">work</a>
+                <a href="#" data-page="contact">contact</a>
+                <a href="assets/files/My Resume.pdf" download="Aman_Kumar_Matta_Resume.pdf" class="animated-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    resume
+                </a>
+            </div>
+
+            <div id="main-content">
+                <!-- Content will be loaded here dynamically -->
+            </div>
+        </div>
     </div>
 
-    <!-- Navigation Menu -->
-    <div class="buttons">
-        <a href="#" data-page="home">1. Home</a>
-        <a href="#" data-page="about">2. About</a>
-        <a href="#" data-page="experience">3. Experience</a>
-        <a href="#" data-page="work">4. Work</a>
-        <a href="#" data-page="contact">5. Contact</a>
-        <a href="assets/files/My Resume.pdf" download="Aman_Kumar_Matta_Resume.pdf" class="animated-button">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Resume
-        </a>
-    </div>
-
-    <!-- Main Content Container -->
-    <div id="main-content">
-        <!-- Content will be loaded here dynamically -->
-    </div>
-
-    <!-- Social Media Links -->
     <div class="socials">
-        <a href="https://github.com/amankumarmatta" target="_blank">
+        <a href="https://github.com/amankumarmatta" target="_blank" title="GitHub">
             <img src="assets/icons/github.png" alt="GitHub" class="social-icon">
         </a>
-        <a href="https://www.linkedin.com/in/amankumarmatta/" target="_blank">
+        <a href="https://www.linkedin.com/in/amankumarmatta/" target="_blank" title="LinkedIn">
             <img src="assets/icons/linkedin.png" alt="LinkedIn" class="social-icon">
         </a>
-        <a href="https://twitter.com/amankumarmatta" target="_blank">
+        <a href="https://twitter.com/amankumarmatta" target="_blank" title="Twitter">
             <img src="assets/icons/twitter.png" alt="Twitter" class="social-icon">
         </a>
-        <a href="https://wa.me/+918341016691" target="_blank">
+        <a href="https://wa.me/+918341016691" target="_blank" title="WhatsApp">
             <img src="assets/icons/whatsapp.png" alt="WhatsApp" class="social-icon">
         </a>
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        // Matrix rain effect
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.getElementById('matrixRain').appendChild(canvas);
+
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789';
+        const alphabet = katakana + latin + nums;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const rainDrops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0F0';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+
+        setInterval(draw, 30);
+    </script>
 </body>
 </html> 
