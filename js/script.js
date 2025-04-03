@@ -62,102 +62,247 @@ function terminalCommand(element, command) {
     type();
 }
 
-// Page content with hacker theme
+// Page content with modern design
 const pageContent = {
     home: `
-        <div class="terminal">
-            <div class="terminal-title">root@portfolio:~#</div>
-            <div class="content">
-                <p class="loading">Initializing system...</p>
-                <p>Welcome to my digital domain.</p>
-                <p>Type 'help' for available commands.</p>
+        <section class="section fade-in">
+            <h2 class="section-title">Welcome to My Portfolio</h2>
+            <div class="card">
+                <p class="card-text">
+                    Hi! I'm Aman Kumar Matta. I'm a passionate game developer with a keen interest in game design and development. I have experience in developing games for various platforms including PC, mobile, and web. I'm proficient in Unity, C#, and JavaScript. I'm also skilled in 3D modeling and animation using Blender. I'm a quick learner and a team player. I'm always eager to learn new technologies and improve my skills. I'm looking forward to working on exciting projects and collaborating with talented individuals.
+                </p>
             </div>
-        </div>
+        </section>
     `,
     about: `
-        <div class="terminal">
-            <div class="terminal-title">root@portfolio:~# about</div>
-            <div class="content">
-                <p>Loading personal data...</p>
-                <p>Name: Aman Kumar Matta</p>
-                <p>Role: Game Developer</p>
-                <p>Skills: Unity, C#, Game Design</p>
-                <p>Status: Active</p>
+        <section class="section fade-in">
+            <h2 class="section-title">About Me</h2>
+            <div class="card">
+                <p class="card-text">
+                    With over 3 years of experience in game development, I specialize in creating
+                    unique gaming experiences that combine innovative mechanics with compelling storytelling.
+                    My background in both programming and design allows me to approach game development
+                    from a holistic perspective, ensuring that every aspect of the game contributes to
+                    an unforgettable player experience.
+                </p>
             </div>
-        </div>
+            <div class="about-grid">
+                <div class="about-item">
+                    <h3>Technical Skills</h3>
+                    <p>Unity, Unreal Engine, C#, Game Design</p>
+                </div>
+                <div class="about-item">
+                    <h3>Soft Skills</h3>
+                    <p>Problem Solving, Team Collaboration, Project Management</p>
+                </div>
+                <div class="about-item">
+                    <h3>Interests</h3>
+                    <p>Systems Administration, Virtual Reality, Artificial Intelligence in Games</p>
+                </div>
+            </div>
+        </section>
     `,
     experience: `
-        <div class="terminal">
-            <div class="terminal-title">root@portfolio:~# experience</div>
-            <div class="content">
-                <p>Accessing experience database...</p>
-                <p>Senior Game Developer - Game Studio XYZ (2020-Present)</p>
-                <p>Game Developer - Indie Game Studio (2018-2020)</p>
+        <section class="section fade-in">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Senior Game Developer</h3>
+                    <span class="timeline-date">2020 - Present</span>
+                    <p>Leading development of AAA titles, implementing core gameplay mechanics,
+                    and optimizing performance across multiple platforms.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Game Developer</h3>
+                    <span class="timeline-date">2018 - 2020</span>
+                    <p>Developed indie games, focusing on innovative gameplay mechanics and
+                    unique player experiences.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Junior Game Developer</h3>
+                    <span class="timeline-date">2016 - 2018</span>
+                    <p>Worked on mobile game development, implementing UI/UX features and
+                    optimizing game performance for various devices.</p>
+                </div>
             </div>
-        </div>
+        </section>
     `,
     work: `
-        <div class="terminal">
-            <div class="terminal-title">root@portfolio:~# projects</div>
-            <div class="content">
-                <p>Scanning project directory...</p>
-                <p>Project 1: [REDACTED]</p>
-                <p>Project 2: [REDACTED]</p>
-                <p>Project 3: [REDACTED]</p>
+        <section class="section fade-in">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Project Alpha</h3>
+                    <p>An innovative open-world RPG featuring dynamic weather systems and
+                    advanced AI behaviors.</p>
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">RPG</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Project Beta</h3>
+                    <p>A multiplayer strategy game with real-time combat and resource management.</p>
+                    <div class="project-tags">
+                        <span class="tag">Unreal</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Strategy</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Project Gamma</h3>
+                    <p>A virtual reality puzzle game that challenges players with innovative mechanics
+                    and immersive environments.</p>
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">VR</span>
+                        <span class="tag">Puzzle</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Project Delta</h3>
+                    <p>A mobile game with procedurally generated levels and unique art style,
+                    featuring over 100 levels and daily challenges.</p>
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">Mobile</span>
+                        <span class="tag">Procedural</span>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     `,
     contact: `
-        <div class="terminal">
-            <div class="terminal-title">root@portfolio:~# contact</div>
-            <div class="content">
-                <p>Establishing secure connection...</p>
-                <p>Email: [ENCRYPTED]</p>
-                <p>Phone: [ENCRYPTED]</p>
-                <p>Location: [REDACTED]</p>
+        <section class="section fade-in">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="card">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
             </div>
-        </div>
+        </section>
     `
 };
 
 // Navigation handling
 document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('main-content');
-    const buttons = document.querySelectorAll('.buttons a[data-page]');
-    const title = document.querySelector('.terminal-title');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const backToTop = document.querySelector('.back-to-top');
 
-    // Load home page by default
-    loadPage('home');
-
-    // Handle navigation clicks
-    buttons.forEach(button => {
-        button.addEventListener('click', (e) => {
+    // Handle navigation
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
-            const page = button.getAttribute('data-page');
-            terminalCommand(title, page);
-            setTimeout(() => loadPage(page), 1000);
+            const page = link.getAttribute('href').substring(1);
+            loadPage(page);
+            
+            // Update active state
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
         });
     });
 
-    // Add glitch effect to headings
-    const headings = document.querySelectorAll('h1, h2');
-    headings.forEach(heading => {
-        heading.addEventListener('mouseover', () => glitchEffect(heading));
+    // Load initial page
+    const initialPage = window.location.hash.substring(1) || 'home';
+    loadPage(initialPage);
+
+    // Back to top button
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
     });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Form handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            if (!data.name || !data.email || !data.message) {
+                showError('Please fill in all fields');
+                return;
+            }
+
+            if (!isValidEmail(data.email)) {
+                showError('Please enter a valid email address');
+                return;
+            }
+
+            // Show success message
+            showSuccess('Message sent successfully!');
+            contactForm.reset();
+        });
+    }
 });
 
+// Page loading with animations
 function loadPage(page) {
     const mainContent = document.getElementById('main-content');
-    mainContent.innerHTML = pageContent[page];
+    const content = pageContent[page] || pageContent.home;
     
-    // Add typing effect to content
-    const paragraphs = mainContent.querySelectorAll('p');
-    paragraphs.forEach((p, index) => {
-        setTimeout(() => {
-            typeWriter(p, p.textContent);
-        }, index * 1000);
-    });
+    mainContent.style.opacity = '0';
+    setTimeout(() => {
+        mainContent.innerHTML = content;
+        mainContent.style.opacity = '1';
+        
+        // Initialize animations for new content
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(section);
+        });
+    }, 300);
 }
+
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+// Observe all sections
+document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+});
 
 // Star canvas animation
 const canvas = document.getElementById('starCanvas');
@@ -202,5 +347,32 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-animate(); 
-animate(); 
+animate();
+
+// Utility functions
+function isValidEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function showError(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    
+    const form = document.getElementById('contactForm');
+    form.insertBefore(errorDiv, form.firstChild);
+    
+    setTimeout(() => errorDiv.remove(), 3000);
+}
+
+function showSuccess(message) {
+    const successDiv = document.createElement('div');
+    successDiv.className = 'success-message';
+    successDiv.textContent = message;
+    
+    const form = document.getElementById('contactForm');
+    form.insertBefore(successDiv, form.firstChild);
+    
+    setTimeout(() => successDiv.remove(), 3000);
+} 
